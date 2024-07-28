@@ -4,12 +4,23 @@ import { useEffect, useState, } from "react";
 import { useParams } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 const BuyPage = () => {
+   interface item {
+      img: string;
+      name: string;
+      desc: string;
+      amount: number;
+      user:  {
+         avatar:string;
+         name:string;
+      };
+      price: number;
+    }
     const {id} = useParams();
-    const [item, setItem] = useState([])
+    const [item, setItem] = useState<item>()
     useEffect(()=>{
           axios.get('http://127.0.0.1:8000/api/item/'+id).then(response => setItem(response.data))
     },[])
-    
+
     return (  
       <>
          <div id="__next">
@@ -73,9 +84,9 @@ const BuyPage = () => {
                                        <div className="LibraryInput__border"></div></div></div>
                                        <a style={{marginTop:"10px"}}className="LibraryButton LibraryButton--sz-l LibraryButton--tp-default LibraryButton--apr-primary LibraryButton--act-default LibraryButton--br-default LibraryButton--stretched" onClick={() => {
                                                    const data = {
-                                                      'where':document.getElementById('where')?.value
+                                                      'where':(document.getElementById('where') as HTMLInputElement).value
                                                    };
-                                                   axios.post('http://localhost:8000/api/link/'+id+'/'+document.getElementById('amount')?.value,data,{headers:{'Authorization':'Bearer '+JSON.stringify(localStorage.getItem('access_token')).slice(1, -1).replace(/\W|_/g, '')}}).catch().then((response) => (location.replace(response.data['url'])))
+                                                   axios.post('http://localhost:8000/api/link/'+id+'/'+(document.getElementById('amount')as HTMLInputElement).value,data,{headers:{'Authorization':'Bearer '+JSON.stringify(localStorage.getItem('access_token')).slice(1, -1).replace(/\W|_/g, '')}}).catch().then((response) => (location.replace(response.data['url'])))
                                                 }}>
                                           <div className="LibraryButton__inner">
                                              <div className="LibraryTypography LibraryTypography--w-semi-bold LibraryLabel LibraryButton__in">

@@ -1,16 +1,12 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
+
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
-import viteLogo from '/vite.svg'
 
 import Header from './comp/Header/Header'
 import Lots from './comp/Items/Items'
 import './style.css'
 import BuyPage from './comp/BuyPage/BuyPage';
-import Footer from './comp/Footer/Footer';
-import axios from 'axios';
-import useLocalStorage from './hooks/useLocalStorage';
+
 import Thanks from './comp/ThanksPage/ThanksPage';
 import Login from './comp/LoginPage/Login';
 function App() {

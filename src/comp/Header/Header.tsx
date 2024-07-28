@@ -1,12 +1,11 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import useLocalStorage from 'D:/alyrineprojects/spmarket/spm/src/hooks/useLocalStorage';
+import useLocalStorage from "../../hooks/useLocalStorage"
 
-import 'D:/alyrineprojects/spmarket/spm/src/style.css'
 
 const Header = () => {
-    const [access_token, setToken] = useLocalStorage('access_token','')
-    const [refresh_token, setRefresh] = useLocalStorage('refresh_token','')
+    const [_access_token, setToken] = useLocalStorage('access_token','')
+    const [_refresh_token, setRefresh] = useLocalStorage('refresh_token','')
     function isLogin(){ 
 
         if (localStorage.getItem('access_token')?.length != 0 && localStorage.getItem('refresh_token')?.length != 0){

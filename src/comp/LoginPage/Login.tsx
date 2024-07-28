@@ -3,13 +3,12 @@ import useLocalStorage from "../../hooks/useLocalStorage"
 import axios from "axios"
 
 const Login = () => {
-    const [access_token, setToken] = useLocalStorage('access_token','')
-    const [refresh_token, setRefresh] = useLocalStorage('refresh_token','')
+    const [_access_token, setToken] = useLocalStorage('access_token','')
+    const [_refresh_token, setRefresh] = useLocalStorage('refresh_token','')
+    
     if(location.search.substr(1).slice(5).length != 0)
       useEffect(()=>{
         axios.get('http://127.0.0.1:8000/api/auth',{headers:{'code':location.search.substr(1).slice(5)}}).then((response)=>{setToken(response.data['access_token']);setRefresh(response.data['refresh_token']);location.replace('http://localhost:5173/')})},[])
-    console.log('ATOKEN:', localStorage.getItem('access_token'))
-    console.log('RTOKEN:', localStorage.getItem('refresh_token'))
     return ( <></> );
 }
  

@@ -1,19 +1,32 @@
 
 import axios from 'axios';
 import { useEffect, useState, } from "react";
-import { useParams } from 'react-router-dom';
-import 'D:/alyrineprojects/spmarket/spm/src/style.css'
 import Footer from '../Footer/Footer';
 
 const Lots = () => {
-   const [items, setItems] = useState([])
+   interface item {
+      img: string;
+      name: string;
+      desc: string;
+      amount: number;
+      user:  {
+         avatar:string;
+         name:string;
+      };
+      price: number;
+    }
+   const [items, setItems] = useState<item>()
+   
    useEffect(()=>{
          axios.get('http://127.0.0.1:8000/api/items').then(response => setItems(response.data))
    },[])
    const [value,setValue] = useState('')
-   const filteredItems = items.filter(item => {
-      return item.name.toLowerCase().includes(value.toLowerCase())
-   })
+   let filteredItems;
+   if(Array.isArray(items)){
+      filteredItems = items?.filter((item : { name: string; } ) => {
+         return item.name.toLowerCase().includes(value.toLowerCase())
+      })
+   }
     return ( 
     <>
 <main className="CollectionPage">
@@ -47,7 +60,7 @@ const Lots = () => {
    <div className="EntityContentContainer">
    <div className="Grid">
       <div className="Grid__grid">
-         {filteredItems.map((items) => {
+         {filteredItems?.map((items: any) => {
             return(
                   <div className="NftItemContainer NftItemContainer--surface-none">
                      <a href={"/item/"+items.id}>
