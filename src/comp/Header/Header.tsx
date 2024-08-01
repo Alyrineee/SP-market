@@ -29,7 +29,7 @@ const Header = () => {
             else
             {
                 return(
-                    <button className="LibraryButton LibraryButton--sz-m LibraryButton--tp-default LibraryButton--apr-primary LibraryButton--act-default LibraryButton--br-default" onClick={()=>{location.replace('https://discord.com/oauth2/authorize?client_id=1264855689780793354&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A5173%2Flogin&scope=identify')}}>
+                    <button className="LibraryButton LibraryButton--sz-m LibraryButton--tp-default LibraryButton--apr-primary LibraryButton--act-default LibraryButton--br-default" onClick={()=>{location.replace('https://discord.com/oauth2/authorize?client_id=1264855689780793354&response_type=code&redirect_uri=https%3A%2F%2Fopenspm.store%2Flogin&scope=identify')}}>
                         <div className="LibraryButton__inner">
                             <div className="LibraryTypography LibraryTypography--w-semi-bold LibrarySubhead LibraryButton__in">
                                 <div className="LibraryButton__text" >Подключить дискорд</div>
