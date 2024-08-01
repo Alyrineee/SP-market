@@ -18,6 +18,7 @@ function App() {
     <Router>
         <Header/>
         <Routes>
+          
           <Route path="/" element={<Lots/>}/>
           <Route path="/item/:id" element={<BuyPage/>}/>
           <Route path="/thanks/" element={<Thanks/>}/>
