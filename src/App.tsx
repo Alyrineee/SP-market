@@ -1,5 +1,5 @@
 
-import {Routes, Route} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 
 import Header from './comp/Header/Header'
@@ -15,7 +15,7 @@ function App() {
   //JSON.stringify(localStorage.getItem('access_token')).slice(1, -1).replace(/\W|_/g, '')
   return (
     <div className="App App--ru">
-
+    <Router>
         <Header/>
         <Routes>
           <Route path="/" element={<Lots/>}/>
@@ -23,6 +23,8 @@ function App() {
           <Route path="/thanks/" element={<Thanks/>}/>
           <Route path="/login" element={<Login/>}/>
         </Routes>
+        
+      </Router>
     </div>
     
   )
