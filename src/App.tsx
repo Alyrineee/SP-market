@@ -1,14 +1,10 @@
 
-import {BrowserRouter as Router, Routes, Route, Outlet} from "react-router-dom";
+import {Outlet} from "react-router-dom";
 
 
 import Header from './comp/Header/Header'
-import Lots from './comp/Items/Items'
 import './style.css'
-import BuyPage from './comp/BuyPage/BuyPage';
 
-import Thanks from './comp/ThanksPage/ThanksPage';
-import Login from './comp/LoginPage/Login';
 function App() {
  
   
