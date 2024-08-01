@@ -7,8 +7,15 @@ const Login = () => {
     const [_refresh_token, setRefresh] = useLocalStorage('refresh_token','')
     
     if(location.search.substr(1).slice(5).length != 0)
-      useEffect(()=>{
-        axios.post('https://api.openspm.store/api/auth',{'code':location.search.substr(1).slice(5)}).then((response)=>{setToken(response.data['access_token']);setRefresh(response.data['refresh_token']);location.replace('https://openspm.store/')})},[])
+        const response = await axios.post(
+          'https://api.openspm.store/api/auth',
+          '',
+          {
+            headers: {
+              'code': location.search.substr(1).slice(5)
+            }
+          }
+        );
     return ( <></> );
 }
  
