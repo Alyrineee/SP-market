@@ -8,7 +8,6 @@ import './style.css'
 import BuyPage from './comp/BuyPage/BuyPage';
 
 import Thanks from './comp/ThanksPage/ThanksPage';
-import Login from './comp/LoginPage/Login';
 function App() {
  
     const [_access_token, setToken] = useLocalStorage('access_token','')
