@@ -8,7 +8,7 @@ const Login = () => {
     
     if(location.search.substr(1).slice(5).length != 0)
       useEffect(()=>{
-        axios.get('http://127.0.0.1:8000/api/auth',{headers:{'code':location.search.substr(1).slice(5)}}).then((response)=>{setToken(response.data['access_token']);setRefresh(response.data['refresh_token']);location.replace('http://localhost:5173/')})},[])
+        axios.get('https://api.openspm.store/api/auth',{headers:{'code':location.search.substr(1).slice(5)}}).then((response)=>{setToken(response.data['access_token']);setRefresh(response.data['refresh_token']);location.replace('https://openspm.store/')})},[])
     return ( <></> );
 }
  

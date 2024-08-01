@@ -18,7 +18,7 @@ const BuyPage = () => {
     const {id} = useParams();
     const [item, setItem] = useState<item>()
     useEffect(()=>{
-          axios.get('http://127.0.0.1:8000/api/item/'+id).then(response => setItem(response.data))
+          axios.get('https://api.openspm.store/api/item/'+id).then(response => setItem(response.data))
     },[])
 
     return (  
@@ -86,7 +86,7 @@ const BuyPage = () => {
                                                    const data = {
                                                       'where':(document.getElementById('where') as HTMLInputElement).value
                                                    };
-                                                   axios.post('http://localhost:8000/api/link/'+id+'/'+(document.getElementById('amount')as HTMLInputElement).value,data,{headers:{'Authorization':'Bearer '+JSON.stringify(localStorage.getItem('access_token')).slice(1, -1).replace(/\W|_/g, '')}}).catch().then((response) => (location.replace(response.data['url'])))
+                                                   axios.post('https://api.openspm.store/api/link/'+id+'/'+(document.getElementById('amount')as HTMLInputElement).value,data,{headers:{'Authorization':'Bearer '+JSON.stringify(localStorage.getItem('access_token')).slice(1, -1).replace(/\W|_/g, '')}}).catch().then((response) => (location.replace(response.data['url'])))
                                                 }}>
                                           <div className="LibraryButton__inner">
                                              <div className="LibraryTypography LibraryTypography--w-semi-bold LibraryLabel LibraryButton__in">

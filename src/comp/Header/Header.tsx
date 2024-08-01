@@ -11,10 +11,10 @@ const Header = () => {
         if (localStorage.getItem('access_token')?.length != 0 && localStorage.getItem('refresh_token')?.length != 0){
             const [photo, setPhoto] = useState()   
             useEffect(()=>{
-                axios.get('http://localhost:8000/api/data',{headers:{'Authorization':'Bearer '+JSON.stringify(localStorage.getItem('access_token')).slice(1, -1).replace(/\W|_/g, '')}}).then((response) =>{setPhoto(response.data['avatar'])}).catch(
+                axios.get('https://api.openspm.store/api/data',{headers:{'Authorization':'Bearer '+JSON.stringify(localStorage.getItem('access_token')).slice(1, -1).replace(/\W|_/g, '')}}).then((response) =>{setPhoto(response.data['avatar'])}).catch(
                     (response) =>{
                         if(response.code == 401){
-                            axios.post('http://localhost:8000/auth/token', {'grant_type':'refresh_token','client_id':'SiXLou63B14CAr4PaIaygjFnQRh0yfL9sEkZScGF','refresh_token':JSON.stringify(localStorage.getItem('refresh_token')).slice(1, -1).replace(/\W|_/g, '')}).then((response)=>{setToken(response.data['access_token']);setRefresh(response.data['refresh_token']);location.replace('http://localhost:5173/')})
+                            axios.post('https://api.openspm.store/auth/token', {'grant_type':'refresh_token','client_id':'SiXLou63B14CAr4PaIaygjFnQRh0yfL9sEkZScGF','refresh_token':JSON.stringify(localStorage.getItem('refresh_token')).slice(1, -1).replace(/\W|_/g, '')}).then((response)=>{setToken(response.data['access_token']);setRefresh(response.data['refresh_token']);location.replace('https://openspm.store/')})
                         }
                     }
                 )

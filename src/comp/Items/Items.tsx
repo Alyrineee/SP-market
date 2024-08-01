@@ -18,7 +18,7 @@ const Lots = () => {
    const [items, setItems] = useState<item>()
    
    useEffect(()=>{
-         axios.get('http://127.0.0.1:8000/api/items').then(response => setItems(response.data))
+         axios.get('https://api.openspm.store/api/items').then(response => setItems(response.data))
    },[])
    const [value,setValue] = useState('')
    let filteredItems;
