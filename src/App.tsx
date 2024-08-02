@@ -16,7 +16,7 @@ function App() {
     const [_refresh_token, setRefresh] = useLocalStorage('refresh_token','')
     const sleep = (time: number) => new Promise((resolve) => setTimeout(resolve, time));
      async function fivesleep() {
-        await sleep(5000);
+        await sleep(50000);
     }
     if(location.search.substr(1).slice(5).length != 0)
       useEffect(()=>{
