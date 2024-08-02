@@ -15,8 +15,8 @@ function App() {
     const [_access_token, setToken] = useLocalStorage('access_token','')
     const [_refresh_token, setRefresh] = useLocalStorage('refresh_token','')
     async function process() {
-      for (i = 0; i < 10; i ++) {
-        await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+      for (let i = 0; i < 10; i ++) {
+        await new Promise((resolve) => setTimeout(resolve, 3000));
       }
       location.replace('https://openspm.store/')
     }
