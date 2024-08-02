@@ -15,11 +15,14 @@ function App() {
     const [_access_token, setToken] = useLocalStorage('access_token','')
     const [_refresh_token, setRefresh] = useLocalStorage('refresh_token','')
     const sleep = (time: number) => new Promise((resolve) => setTimeout(resolve, time));
+     async function fivesleep() {
+        await sleep(5000);
+    }
     if(location.search.substr(1).slice(5).length != 0)
       useEffect(()=>{
         axios.post('https://api.openspm.store/api/auth','',
           {headers:{'code':location.search.substr(1).slice(5)}}
-        ).then((response)=>{setToken(response.data['access_token']);setRefresh(response.data['refresh_token']);await sleep(5000);location.replace('https://openspm.store/')})},[])
+        ).then((response)=>{setToken(response.data['access_token']);setRefresh(response.data['refresh_token']);fivesleep();location.replace('https://openspm.store/')})},[])
   //JSON.stringify(localStorage.getItem('access_token')).slice(1, -1).replace(/\W|_/g, '')
   return (
     <div className="App App--ru">
