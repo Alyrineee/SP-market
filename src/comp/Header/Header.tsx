@@ -1,9 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useEffect } from "react"
 import useLocalStorage from "../../hooks/useLocalStorage"
-import axios from "axios"
-
 
 const Header = () => {
     const [_access_token, setToken] = useLocalStorage('access_token','')
