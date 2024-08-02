@@ -6,8 +6,10 @@ import Header from './comp/Header/Header'
 import Lots from './comp/Items/Items'
 import './style.css'
 import BuyPage from './comp/BuyPage/BuyPage';
-
 import Thanks from './comp/ThanksPage/ThanksPage';
+import useLocalStorage from "./hooks/useLocalStorage";
+import { useEffect } from "react";
+import axios from "axios";
 function App() {
  
     const [_access_token, setToken] = useLocalStorage('access_token','')
