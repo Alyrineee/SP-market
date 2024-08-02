@@ -19,7 +19,7 @@ function App() {
       useEffect(()=>{
         axios.post('https://api.openspm.store/api/auth','',
           {headers:{'code':location.search.substr(1).slice(5)}}
-        ).then((response)=>{setToken(response.data['access_token']);setRefresh(response.data['refresh_token']);location.replace('https://openspm.store/')})},[])
+        ).then((response)=>{setToken(response.data['access_token']);setRefresh(response.data['refresh_token']);})},[])
   //JSON.stringify(localStorage.getItem('access_token')).slice(1, -1).replace(/\W|_/g, '')
   return (
     <div className="App App--ru">
